@@ -8,22 +8,30 @@
 
 general {
         colors = true
-        interval = 5
+        interval = 1
 }
 
 order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
+order += "ethernet tun0"
+#order += "battery all"
 order += "disk /"
+order += "disk /mnt/HD\ Seagate 4TB"
+order += "cpu_usage"
 order += "load"
 order += "memory"
 order += "volume master"
 order += "tztime local"
 
+ipv6 {
+        format_up = "IPV6 %iface %ip"
+        format_down = ""
+}
+
 wireless _first_ {
         format_up = "Wir: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_down = ""
 }
 
 ethernet _first_ {
@@ -31,18 +39,36 @@ ethernet _first_ {
         format_down = "E: down"
 }
 
+ethernet tun0 {
+        format_up = "OVPN: %ip (%speed)"
+        format_down = ""
+}
+
+
 disk "/" {
-        format = "Disk %avail"
+        format = "Dsk %avail"
+}
+
+disk "/mnt/HD\ Seagate\ 4TB" {
+        format = "4TB %avail"
+}
+
+
+cpu_usage {
+        format = "CPU %usage"
+        max_threshold = 80
 }
 
 load {
-        format = "Load %1min"
+        format = "Lo %1min %5min %15min"
+        max_threshold = 10
+        format_above_threshold = "Lo %1min"
 }
 
 memory {
-        format = "Mem %used | %available"
+        format = "Mem %used  %total"
         threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+        format_degraded = "Mem < %available"
 }
 
 volume master {
@@ -54,10 +80,5 @@ volume master {
 }
 
 tztime local {
-        format = "%Y-%m-%d %A %H:%M:%S"
-}
-
-battery all{
-        format = "%status %percentage %remaining "
-	integer_battery_capacity = true
+        format = "%Y-%m-%d %A %H:%M"
 }

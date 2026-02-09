@@ -1,4 +1,4 @@
-syntax on
+vim.cmd([[syntax on
 
 set t_Co=256
 
@@ -17,7 +17,7 @@ set relativenumber
 
 set clipboard+=unnamedplus
 
-colorscheme default
+colorscheme slate
 
 set wildmode=longest,list
 
@@ -32,4 +32,12 @@ set cursorline
 set smartcase
 
 set termguicolors
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+command W :execute 'w !sudo tee %'
+]])
 
