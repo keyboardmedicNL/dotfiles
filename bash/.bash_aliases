@@ -52,7 +52,7 @@ alias vscode='code'
 alias todo='nvim ~/Desktop/desktop_docs/Notes/TODO.md'
 
 alias c='clear'
-alias t='tmux -a || tmux'
+alias t='tmux a || tmux'
 alias r='ranger'
 alias x='exit'
 alias q='exit'

@@ -238,14 +238,18 @@ bindsym $mod+i resize grow height 10 px or 10 ppt
 bindsym $mod+o resize shrink height 10 px or 10 ppt
 bindsym $mod+p resize grow width 10 px or 10 ppt
 
-# Display Wallpaper
-exec_always feh --bg-fill '/usr/share/wallpaper.jpg'
+# Media player controls 
+bindsym $mod+F10 exec playerctl play-pause 
+bindsym $mod+F11 exec playerctl stop 
+bindsym $mod+F12 exec playerctl next 
+bindsym $mod+F9 exec playerctl previous
 
 # move certain windows to their own workspace automaticly
 for_window [class="terminal"] move to workspace $ws1
 
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="discord"] move to workspace $ws2
+for_window [class="TeamSpeak 3"] move to workspace $ws2
 
 for_window [class="VSCodium"] move to workspace $ws3
 
@@ -255,7 +259,16 @@ for_window [class="steam"] move to workspace $ws5
 for_window [class="PolyMC"] move to workspace $ws5
 
 for_window [class="qemu-system-x86_64"] move to workspace $ws10
+for_window [class="org.remmina.Remmina"] move to workspace $ws10
 
+# autostart programs on i3 launch
+# gnome keyring start
 exec –no-startup-id env GPG_TTY=$tty SSH_AUTH_SOCK=/run/user/$id -u/keyring/ssh gnome-keyring-daemon –start –components=pkcs11,secrets,ssh & eval $gnome-keyring-daemon –start –components=pkcs11,secrets,ssh
+
+# Display Wallpaper
+exec_always feh --bg-fill '/usr/share/wallpaper.jpg'
+
+# start mprisy proxy to allow bluetooth media buttons to work
+exec --no-startup-id mpris-proxy
 
 #exec_always --no-startup-id i3wsr
