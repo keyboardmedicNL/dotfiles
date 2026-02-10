@@ -25,11 +25,16 @@ alias aliasconf='nvim ~/.bash_aliases'
 alias nvimconf='nvim ~/.config/nvim/init.lua'
 alias vimconf='nvim ~/.vimrc'
 alias bashrc='source ~/.bashrc'
+alias tmuxconf='nvim ~/.tmux.conf'
 
 #timers
 alias fftimer='echo "Closing firefox in 1 hour" && sleep 3600 && pkill firefox'
 alias sleeptimer='echo "System going to sleep in 1 hour" && sleep 3600 && suspend'
 alias shutdowntimer='echo "System shutting down in 1 hour" && sleep 3600 && poweroff'
+
+alias pizza='pomo 35m'
+alias fries='pomo 15m'
+alias burger='pomo 10m'
 
 #ssh and wol 
 alias buzzer4='ssh -X -C pi@192.168.192.20'

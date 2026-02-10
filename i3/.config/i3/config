@@ -118,13 +118,13 @@ bindsym $mod+c focus child
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: terminal"
 set $ws2 "2: browser/social"
-set $ws3 "3: dev/file"
-set $ws4 "4: various"
+set $ws3 "3: dev"
+set $ws4 "4: files"
 set $ws5 "5: games"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws6 "6: various"
+set $ws7 "7: various"
+set $ws8 "8: various"
+set $ws9 "9: various"
 set $ws10 "10: VMs"
 
 # switch to workspace
@@ -227,27 +227,33 @@ gaps outer 2
 # costum keybinds
 
 # launch screenshot utility
-bindsym Print exec xfce4-screenshooter
+bindsym Print exec flameshot gui
 # alt tab with rofi
 bindsym Mod1+Tab exec --no-startup-id "rofi -show"
 # lock screen with ctrl+alt+delete
 bindsym Mod1+Ctrl+Delete exec i3lock
 # resize keys
-bindsym $mod+y resize shrink width 10 px or 10 ppt
-bindsym $mod+u resize grow height 10 px or 10 ppt
-bindsym $mod+i resize shrink height 10 px or 10 ppt
-bindsym $mod+o resize grow width 10 px or 10 ppt
+bindsym $mod+u resize shrink width 10 px or 10 ppt
+bindsym $mod+i resize grow height 10 px or 10 ppt
+bindsym $mod+o resize shrink height 10 px or 10 ppt
+bindsym $mod+p resize grow width 10 px or 10 ppt
 
 # Display Wallpaper
 exec_always feh --bg-fill '/usr/share/wallpaper.jpg'
 
 # move certain windows to their own workspace automaticly
 for_window [class="terminal"] move to workspace $ws1
-for_window [class="VSCodium"] move to workspace $ws3
-for_window [class="Thunar"] move to workspace $ws3
+
 for_window [class="firefox"] move to workspace $ws2
 for_window [class="discord"] move to workspace $ws2
+
+for_window [class="VSCodium"] move to workspace $ws3
+
+for_window [class="Thunar"] move to workspace $ws4
+
 for_window [class="steam"] move to workspace $ws5
+for_window [class="PolyMC"] move to workspace $ws5
+
 for_window [class="qemu-system-x86_64"] move to workspace $ws10
 
 exec –no-startup-id env GPG_TTY=$tty SSH_AUTH_SOCK=/run/user/$id -u/keyring/ssh gnome-keyring-daemon –start –components=pkcs11,secrets,ssh & eval $gnome-keyring-daemon –start –components=pkcs11,secrets,ssh
