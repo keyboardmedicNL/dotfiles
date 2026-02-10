@@ -1,5 +1,16 @@
 # here is your favourite prompt incase you want to insert that somewhere: 
-#    PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;39;1m\]\u\[\e[0m\]:\[\e[38;5;39;1m\]\H\[\e[0m\]:\[\e[38;5;105m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
+#
+# blue prompt:
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;39;1m\]\u\[\e[0m\]:\[\e[38;5;39;1m\]\H\[\e[0m\]:\[\e[38;5;105m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
+#
+# orange prompt:
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;208;1m\]\u\[\e[0m\]:\[\e[38;5;208;1m\]\H\[\e[0m\]:\[\e[38;5;166m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
+#
+# purple promt:
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;99;1m\]\u\[\e[0m\]:\[\e[38;5;99;1m\]\H\[\e[0m\]:\[\e[38;5;171m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
+#
+# green prompt:
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[92;1m\]\u\[\e[0m\]:\[\e[92;1m\]\H\[\e[0m\]:\[\e[38;5;34m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
 
 #sneaky non alias to ignore case for tab completion:
 bind -s 'set completion-ignore-case on'
