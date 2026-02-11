@@ -51,6 +51,7 @@ alias burger='pomo 10m'
 alias buzzer4='ssh -X -C pi@192.168.192.20'
 alias rover='ssh -X -C keyboardmedic@192.168.192.10'
 alias shed='ssh -X -C keyboardmedic@192.168.192.11'
+alias container='ssh -X -C keyboardmedic@192.168.178.212'
 alias wakerover='wakeonlan 24:4B:FE:4A:27:26'
 alias waketruenas='wakeonlan 00:25:90:A9:67:89'
 
