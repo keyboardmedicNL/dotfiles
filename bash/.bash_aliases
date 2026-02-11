@@ -16,7 +16,7 @@
 bind -s 'set completion-ignore-case on'
 
 #ls aliases
-alias ll='ls -al --color'
+alias ll='ls -alh --color'
 alias la='ls -A --color'
 alias l='ls -CF --color'
 alias ls='ls --color'
@@ -61,6 +61,7 @@ alias update='sudo apt update && sudo apt upgrade'
 alias code='codium .'
 alias vscode='code'
 alias todo='nvim ~/Desktop/desktop_docs/Notes/TODO.md'
+alias size='du -h --max-depth=1 | sort -h --reverse'
 
 alias c='clear'
 alias t='tmux a || tmux'
