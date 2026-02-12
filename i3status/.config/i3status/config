@@ -11,10 +11,11 @@ general {
         interval = 1
 }
 
-order += "ipv6"
+#order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "ethernet tun0"
+order += "ethernet proton0"
 #order += "battery all"
 order += "disk /"
 order += "disk /mnt/HD\ Seagate 4TB"
@@ -25,7 +26,7 @@ order += "volume master"
 order += "tztime local"
 
 ipv6 {
-        format_up = "IPV6 %iface %ip"
+        format_up = "IPV6 %ip"
         format_down = ""
 }
 
@@ -35,15 +36,19 @@ wireless _first_ {
 }
 
 ethernet _first_ {
-        format_up = "Eth: %ip (%speed)"
+        format_up = "Eth: %ip"
         format_down = "E: down"
 }
 
 ethernet tun0 {
-        format_up = "OVPN: %ip (%speed)"
+        format_up = "OVPN: %ip"
         format_down = ""
 }
 
+ethernet proton0 {
+        format_up = "PROTON: %ip"
+        format_down = "PROTON DOWN"
+}
 
 disk "/" {
         format = "Dsk %avail"
@@ -60,7 +65,7 @@ cpu_usage {
 }
 
 load {
-        format = "Lo %1min %5min %15min"
+        format = "Lo %1min"
         max_threshold = 10
         format_above_threshold = "Lo %1min"
 }

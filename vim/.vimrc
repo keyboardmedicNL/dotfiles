@@ -12,8 +12,11 @@ set shiftwidth=4
 set expandtab
 set fileformat=unix
 
+set number
 set relativenumber
+
+set nowrap
 
 set clipboard+=unnamedplus
 
-colorscheme default
+colorscheme slate
