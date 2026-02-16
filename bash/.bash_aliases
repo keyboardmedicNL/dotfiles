@@ -16,6 +16,10 @@
 #sneaky non alias to ignore case for tab completion:
 bind -s 'set completion-ignore-case on'
 
+#sneaky non alias to turn off capslock
+setxkbmap -option ctrl:nocaps
+
+
 #ls aliases
 alias ll='ls -alh --color'
 alias la='ls -A --color'
@@ -26,8 +30,7 @@ alias ls='ls --color'
 alias report="batcat  /var/report.txt"
 alias editreport="vim /var/report.txt"
 alias authlog='journalctl _COMM=sudo --no-pager | grep -iE "failed|authentication failure|incorrect password" -m 10| batcat '
-alias freshclamlog='journalctl _COMM=freshclam --no-pager -n 10 | batcat '
-alias reports='authlog && freshclamlog && report'
+alias reports='authlog && report'
 
 # editing configs
 alias bashconf='"vim" ~/.bashrc'
@@ -49,10 +52,10 @@ alias fries='pomo 15m'
 alias burger='pomo 10m'
 
 #ssh and wol 
-alias buzzer4='ssh -X -C pi@192.168.192.20'
-alias rover='ssh -X -C keyboardmedic@192.168.192.10'
-alias shed='ssh -X -C keyboardmedic@192.168.192.11'
-alias container='ssh -X -C keyboardmedic@192.168.178.212'
+alias buzzer4='ssh -X pi@192.168.192.20'
+alias rover='ssh -X keyboardmedic@192.168.192.10'
+alias shed='ssh -X keyboardmedic@192.168.192.11'
+alias container='ssh -X keyboardmedic@192.168.178.212'
 alias wakerover='wakeonlan 24:4B:FE:4A:27:26'
 alias waketruenas='wakeonlan 00:25:90:A9:67:89'
 
@@ -80,3 +83,5 @@ alias poweroff='systemctl poweroff'
 #yt-dlp
 alias yt-dlp-playlist480='yt-dlp -f "best[height<=480]" --download-archive archive.txt --no-overwrites'
 alias yt-dlp-480='yt-dlp -f "best[height<=480]"'
+
+alias weather='curl wttr.in'
