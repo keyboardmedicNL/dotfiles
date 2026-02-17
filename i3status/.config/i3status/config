@@ -11,12 +11,12 @@ general {
         interval = 1
 }
 
-order += "ipv6"
+#order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "ethernet tun0"
 order += "ethernet proton0"
-order += "battery 0"
+order += "battery all"
 order += "disk /"
 order += "disk /mnt/HD\ Seagate 4TB"
 order += "cpu_usage"
@@ -31,13 +31,13 @@ ipv6 {
 }
 
 wireless _first_ {
-        format_up = "Wir: (%quality at %essid) %ip"
+        format_up = "WIR:%quality %essid %ip"
         format_down = ""
 }
 
 ethernet _first_ {
-        format_up = "Eth: %ip"
-        format_down = "E: down"
+        format_up = "ETH: %ip"
+        format_down = ""
 }
 
 ethernet tun0 {
@@ -46,17 +46,17 @@ ethernet tun0 {
 }
 
 ethernet proton0 {
-        format_up = "PROTON: %ip"
+        format_up = "PRTN: %ip"
         format_down = "PROTON DOWN"
 }
 
-battery 0 {  
-    format = "%status %percentage%"
+battery all {  
+    format = "%status %percentage %remaining"
     format_down = "" 
 }  
 
 disk "/" {
-        format = "Dsk %avail"
+        format = "DSK %avail"
 }
 
 disk "/mnt/HD\ Seagate\ 4TB" {
@@ -69,20 +69,19 @@ cpu_usage {
 }
 
 load {
-        format = "Lo %1min"
-        max_threshold = 10
+        format = "LO %1min"
         format_above_threshold = "Lo %1min"
 }
 
 memory {
-        format = "Mem %used  %total"
+        format = "MEM %used/%total"
         threshold_degraded = "1G"
         format_degraded = "Mem < %available"
 }
 
 volume master {
-        format = "Vol %volume"
-        format_muted = "muted (%volume)"
+        format = "VOL %volume"
+        format_muted = "MUTED (%volume)"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
@@ -90,5 +89,5 @@ volume master {
 
 
 tztime local {
-        format = "%Y-%m-%d %A %H:%M"
+        format = "%Y-%m-%d %a %H:%M"
 }
