@@ -20,6 +20,31 @@ bind -s 'set completion-ignore-case on'
 setxkbmap -option ctrl:nocaps
 
 
+function cd() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi
+    builtin cd "${new_directory}" && la
+}
+
+function z() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi
+    __zoxide_z "${new_directory}" && la
+} 
+
+function zi() {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi
+    __zoxide_zi "${new_directory}" && la
+}
+ 
+
 #ls aliases
 alias ll='ls -alh --color'
 alias la='ls -A --color'
@@ -85,3 +110,5 @@ alias yt-dlp-playlist480='yt-dlp -f "best[height<=480]" --download-archive archi
 alias yt-dlp-480='yt-dlp -f "best[height<=480]"'
 
 alias weather='curl wttr.in'
+
+alias syncmusicrover='rsync --delete -rivht --modify-window=1 pi@192.168.192.20:/mnt/extdrive/Spectre/@videos/music/music/ ~/Music'

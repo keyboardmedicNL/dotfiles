@@ -46,7 +46,7 @@ ethernet tun0 {
 }
 
 ethernet proton0 {
-        format_up = "PRTN: %ip"
+        format_up = "PROTON UP"
         format_down = "PROTON DOWN"
 }
 
