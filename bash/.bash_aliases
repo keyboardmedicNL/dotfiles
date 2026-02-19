@@ -1,7 +1,7 @@
 # here is your favourite prompt incase you want to insert that somewhere: 
 #
 # blue prompt:
-# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;39;1m\]\u\[\e[0m\]:\[\e[38;5;39;1m\]\H\[\e[0m\]:\[\e[38;5;105m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[96m\]\A\[\e[0m\]:\[\e[96;1m\]\u\[\e[0m\]:\[\e[96;1m\]\H\[\e[0m\]:\[\e[96m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
 #
 # orange prompt:
 # PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;208;1m\]\u\[\e[0m\]:\[\e[38;5;208;1m\]\H\[\e[0m\]:\[\e[38;5;166m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
@@ -25,7 +25,7 @@ function cd() {
     if [ $# -eq 0 ]; then
         new_directory=${HOME};
     fi
-    builtin cd "${new_directory}" && la
+    builtin cd "${new_directory}" && ls -a
 }
 
 function z() {
@@ -33,7 +33,7 @@ function z() {
     if [ $# -eq 0 ]; then
         new_directory=${HOME};
     fi
-    __zoxide_z "${new_directory}" && la
+    __zoxide_z "${new_directory}" && ls -a
 } 
 
 function zi() {
@@ -41,7 +41,7 @@ function zi() {
     if [ $# -eq 0 ]; then
         new_directory=${HOME};
     fi
-    __zoxide_zi "${new_directory}" && la
+    __zoxide_zi "${new_directory}" && ls -a
 }
  
 

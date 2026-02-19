@@ -283,6 +283,6 @@ exec_always feh --bg-fill '/usr/share/wallpaper.jpg'
 # start mprisy proxy to allow bluetooth media buttons to work
 exec --no-startup-id mpris-proxy
 
-exec protonvpn connect --country netherlands
+#exec protonvpn connect --country netherlands
 
 exec beebeep

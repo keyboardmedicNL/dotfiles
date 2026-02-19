@@ -17,7 +17,7 @@ set relativenumber
 
 set nowrap
 
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 set mouse=a
 
