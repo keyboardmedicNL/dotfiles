@@ -1,8 +1,7 @@
 # here is your favourite prompt incase you want to insert that somewhere: 
 #
 # blue prompt:
-# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[96m\]\A\[\e[0m\]:\[\e[96;1m\]\u\[\e[0m\]:\[\e[96;1m\]\H\[\e[0m\]:\[\e[96m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
-#
+# PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0;1m\]:\[\e[38;5;39m\]\u\[\e[0m\]:\[\e[38;5;39;1m\]\H\[\e[39m\]:\[\e[0;38;5;105m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
 # orange prompt:
 # PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\[\e[38;5;208m\]\A\[\e[0m\]:\[\e[38;5;208;1m\]\u\[\e[0m\]:\[\e[38;5;208;1m\]\H\[\e[0m\]:\[\e[38;5;166m\]\w\[\e[0m\] \[\e[91m\]${PS1_CMD1}\[\e[0m\]:\\$ '
 #
@@ -43,7 +42,17 @@ function zi() {
     fi
     __zoxide_zi "${new_directory}" && ls -a
 }
- 
+
+function unlock_ssh() {
+    if [ ! -S ~/.ssh/ssh_auth_sock ]; then
+      eval `ssh-agent`
+      ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+    fi
+    export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
+    ssh-add -l ~/.ssh/medickeyssh > /dev/null || ssh-add ~/.ssh/medickeyssh
+}
+
+alias unlockssh='unlock_ssh'
 
 #ls aliases
 alias ll='ls -alh --color'

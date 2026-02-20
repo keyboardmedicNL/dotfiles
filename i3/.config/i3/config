@@ -189,12 +189,22 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         status_command i3status
+    colors {
+        background #000000
+        statusline #ffffff #that neon blue
+        separator #666666
+
+        focused_workspace  #a80808 #a80808 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #e0e000 #e0e000 #ffffff
+    }
 }
 
 # KBM additions
 
 # Color shemes for windows 
-set $bgcolor    #176984
+set $bgcolor    #a80808
 set $in-bgcolor #363636
 set $text       #ffffff
 set $u-bgcolor  #ff0000
